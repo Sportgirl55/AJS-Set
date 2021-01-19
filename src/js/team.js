@@ -5,11 +5,12 @@ export default class Team {
   }
 
   add(member) {
-    if (this.members.has(member)) {
-      throw new Error('Такой персонаж уже есть');
-    } else {
-      this.members.add(member);
-    }
+    this.members.forEach((elem) => {
+      if (Object.entries(elem).toString() === Object.entries(member).toString()) {
+        throw new Error('Такой персонаж уже есть');
+      }
+    });
+    this.members.add(member);
   }
 
   addAll(arr) {

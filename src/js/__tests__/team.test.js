@@ -14,16 +14,6 @@ test('add', () => {
   }).not.toThrow();
 });
 
-test('throw error', () => {
-  const newTeam = new Team();
-  const person = new Zombie('zombie', 'Zombie');
-  expect(() => {
-    newTeam.add(person);
-    newTeam.add(person);
-  }).toThrow('Такой персонаж уже есть');
-});
-
-
 test('array addAll', () => {
   const newTeam = new Team();
   const newZombie = new Zombie('zombie', 'Zombie');
@@ -49,4 +39,21 @@ test('to Array', () => {
   newTeam.add(newZombie);
   newTeam.add(newDaemon);
   expect(newTeam.toArray()).toEqual([newZombie, newDaemon]);
+});
+
+test('test-name', () => {
+  const team = new Team();
+  team.add({
+    name: 'Лучник', type: 'Bowman', health: 50, level: 3, attack: 40, defence: 10,
+  });
+  expect(() => {
+    team.add({
+      name: 'Лучник',
+      type: 'Bowman',
+      health: 50,
+      level: 3,
+      attack: 40,
+      defence: 10,
+    });
+  }).toThrow('Такой персонаж уже есть');
 });
