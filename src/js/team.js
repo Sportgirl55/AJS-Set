@@ -22,10 +22,3 @@ export default class Team {
     return [...this.members];
   }
 }
-
-
-// const newTeam = new Team();
-// newTeam.add(1);
-// newTeam.add(4);
-// newTeam.add(6);
-// console.log(newTeam);
